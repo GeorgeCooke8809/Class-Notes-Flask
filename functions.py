@@ -4,11 +4,11 @@ import os
 class timetable:
     def __init__(self, name, timetables, start = None, end = None):
         if name in timetables:
-            self.__load(name)
+            self._load(name)
         else:
-            self.__create_new(name, timetables, start, end)
+            self._create_new(name, timetables, start, end)
 
-    def __create_new(self, name:str, timetables: list, start: str, end: str): # Date formats - dd/mm/yyyy
+    def _create_new(self, name:str, timetables: list, start: str, end: str): # Date formats - dd/mm/yyyy
         if name in timetables:
             raise Exception("ERROR: Timetable name already exists")
         
@@ -25,7 +25,7 @@ class timetable:
             metadata.write(f"End Date - {self.end_date}\n")
 
 
-    def __load(self, name:str):    
+    def _load(self, name:str):    
         self.directory = f"timetables/{name}"
 
         self.subjects = os.listdir(f"{self.directory}")
@@ -158,7 +158,7 @@ class timetable:
 
         return self.lessons_list
 
-    def __query_day_in_lessons(self, day: str, lessons_sub: list):
+    def _query_day_in_lessons(self, day: str, lessons_sub: list):
         if day in lessons_sub:
             return True
         
