@@ -1,5 +1,6 @@
 import datetime
 import os
+import logging
 
 class timetable:
     def __init__(self, name, timetables, start = None, end = None):
